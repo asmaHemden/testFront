@@ -1,0 +1,38 @@
+
+<div class="container">
+  <label>category:</label>
+  <select  class="form-control" placeholder="add description" [(ngModel)]="category"  >
+    <option value="0" disabled>--Select category--</option>
+    <option *ngFor="let l of listeCategory" value={{l.category}}  >
+      {{l.category}}
+    </option>
+  </select>
+  <button (click)="getListProductsBycategory()" class="btn btn-primary" >Search By selected category</button>
+
+  <div class="row">
+    <table class="table">
+      <thead class="thead-inverse">
+      <tr bgcolor="#34C924">
+        <th class="text-center">productname</th>
+        <th class="text-center">productmaterial</th>
+        <th class="text-center">baseprice</th>
+        <th class="text-center">brand</th>
+        <th class="text-center">category</th>
+        <th class="text-center">delivery</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of liste">
+
+        <td class="text-center" style="width: 200px;" >{{p.productname}} <br>
+        <td class="text-center" style="width: 200px;">{{p.productmaterial}}</td>
+        <td class="text-center" style="width: 200px;">{{p.baseprice}}</td>
+        <td class="text-center" style="width: 200px;">{{p.brand}}</td>
+        <td class="text-center" style="width: 200px;">{{p.category}}</td>
+        <td class="text-center" style="width: 200px;">{{p.delivery | date: 'dd/MM/y'}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
